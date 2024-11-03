@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Añadir el favicon -->
+    <link rel="icon" href="https://i.imgur.com/ciKzJDl.png" type="image/x-icon">
     <style>
         body {
             font-family: 'Roboto', sans-serif; 
@@ -21,23 +23,16 @@
             width: 100%;
         }
         .navbar-brand img {
-            height: 60px; 
+            height: 40px; 
             width: auto; 
         }
         .nav-icons .material-icons {
             font-size: 24px;
             margin-right: 0.5rem;
             color: white;
+    
         }
-        .banner-container {
-            height: 250px; 
-            overflow: hidden; 
-        }
-        .banner-container img {
-            width: 100%;
-            height: auto;
-        }
-        body {
+        .body {
             position: relative;
             z-index: 1;
         }
@@ -47,7 +42,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("imagenes/logo completo.png") no-repeat center center;
+            background: url("https://i.imgur.com/blcufSD.png") no-repeat center center;
             background-size: cover;
             opacity: 0.1;
             z-index: -1;
@@ -68,7 +63,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand mx-auto" href="#">
-                <img src="imagenes/letra logo.png" alt="NEMORALIA">  <!-- PENDIENTE REDIMENSIONAR LA IMAGEN -->
+                <img src="https://i.imgur.com/F5dBoBn.png" alt="NEMORALIA">  <!-- PENDIENTE REDIMENSIONAR LA IMAGEN -->
             </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav nav-icons">
@@ -92,10 +87,7 @@
         </div>
     </nav>
 
-    <!-- BANNER -->
-<div class="banner-container" style="margin-bottom: 0;">
-    <img src="imagenes/camiseta negra.jpg" alt="Banner" class="img-fluid"> <!-- PENDIENTE CAMBIAR LA IMAGEN Y AÑADIR EL LOGO DE NEMORALIA-->
-</div>
+
 
 <!-- NAV BAR PRODUCTOS -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 0;">
@@ -151,7 +143,7 @@
             <label for="exampleInputPassword1" class="form-label text-white">Contraseña</label>
             <input type="password" class="form-control mx-auto text-center" id="exampleInputPassword1" style="max-width: 300px;" placeholder="INGRESA TU CONTRASEÑA">
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button> <!-- PENDIENTE CAMBIAR COLOR BOTON -->
+        <button type="submit" class="btn btn-secondary">Iniciar sesión</button>
         <div class="mt-3 text-center">
             <a href="#" class="text-link">¿Olvidaste tu contraseña?</a><br>
             <a href="#" class="text-link">¿No tienes cuenta? Regístrate aquí</a>

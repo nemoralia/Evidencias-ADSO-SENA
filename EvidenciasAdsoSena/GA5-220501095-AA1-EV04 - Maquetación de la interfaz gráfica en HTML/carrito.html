@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
+    <title>Sesión - NEMORALIA</title>  <!-- AÑADIR LOGO DE NEMORALIA -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Añadir el favicon -->
+    <link rel="icon" href="https://i.imgur.com/ciKzJDl.png" type="image/x-icon">
     <style>
         body {
-            font-family: 'Roboto', sans-serif; /* Aplica la fuente Roboto a todo el cuerpo */
+            font-family: 'Roboto', sans-serif; 
         }
         .navbar {
-            background-color: #FFFFFC; /* Cambia el color de fondo de la barra de navegación */
+            background-color: #686867
         }
         .navbar-brand {
             display: flex;
@@ -21,29 +23,18 @@
             width: 100%;
         }
         .navbar-brand img {
-            height: 60px; /* Aumenta el tamaño de la imagen */
-            width: auto; /* Mantiene la proporción de la imagen */
+            height: 40px; 
+            width: auto; 
         }
         .nav-icons .material-icons {
             font-size: 24px;
             margin-right: 0.5rem;
-            color: white; /* Cambia el color de los iconos a blanco */
+            color: white;
+    
         }
-        .banner-container {
-            height: 250px; /* Ajusta la altura del banner según sea necesario */
-            overflow: hidden; /* Oculta el desbordamiento */
-        }
-        .banner-container img {
-            width: 100%;
-            height: auto;
-        }
-        .text-link {
-            color: blue;
-            text-decoration: underline;
-        }
-        ::placeholder {
-            color: grey; /* Color del texto del placeholder */
-            opacity: 1; /* Asegura que el color del placeholder sea visible */
+        .body {
+            position: relative;
+            z-index: 1;
         }
         .watermark {
             position: fixed;
@@ -51,7 +42,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("imagenes/logo completo.png") no-repeat center center;
+            background: url("https://i.imgur.com/blcufSD.png") no-repeat center center;
             background-size: cover;
             opacity: 0.1;
             z-index: -1;
@@ -62,18 +53,67 @@
             text-align: center;
             margin-bottom: 10px;
         }
-        .cart-item {
-            background-color: white;
-            border-radius: 15px;
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .cart-header, .cart-body {
+            width: 80%; /* Ajusta el ancho del cuadro */
+            max-width: 800px; /* Ancho máximo para el cuadro */
+        }
+        .cart-header {
+            background-color: #E40E20;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
+        }
+        .cart-body {
+            background-color: #10101B;
+            color: white;
             padding: 20px;
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 0 0 10px 10px; /* Bordes redondeados en la parte inferior */
+        }
+        .cart-item {
             display: flex;
             align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+            justify-content: center;
         }
         .cart-item img {
-            max-width: 100px;
+            height: 100px;
+            width: auto;
             margin-right: 20px;
         }
+        .cart-details {
+            flex-grow: 1;
+            max-width: 300px;
+        }
+        .cart-summary {
+            text-align: right;
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .btn-custom {
+            background-color: #6c757d; /* Color gris */
+            border-color: #6c757d; /* Color gris */
+            color: white; /* Color del texto */
+        }
+    </style>
+</head>
+<body>
+
     </style>
 </head>
 <body>
@@ -83,7 +123,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand mx-auto" href="#">
-                <img src="imagenes/letra logo.png" alt="NEMORALIA">
+                <img src="https://i.imgur.com/F5dBoBn.png" alt="NEMORALIA">  <!-- PENDIENTE REDIMENSIONAR LA IMAGEN -->
             </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav nav-icons">
@@ -107,13 +147,6 @@
         </div>
     </nav>
 
-    <!-- BANNER -->
-    <div class="banner-container position-relative" style="margin-bottom: 0;">
-        <img src="imagenes/camiseta negra.jpg" alt="Banner" class="img-fluid">
-        <div class="position-absolute top-50 start-50 translate-middle text-white" style="z-index: 1;">
-            <h1>Hola</h1>
-        </div>
-    </div>
 
     <!-- NAV BAR PRODUCTOS -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-top: 0;">
@@ -146,49 +179,55 @@
         </div>
     </nav>
 
-    <!-- CARRITO DE COMPRAS -->
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh; margin-top: 0;">
-        <div class="w-75">
-            <!-- CUADRO ROJO -->
-            <div class="border p-3" style="background-color: #E40E20;">
-                <h2 class="text-center" style="color:white;font-weight: bold;">Tus Compras</h2>
+     <!-- CARRITO DE COMPRAS -->
+    <div class="container cart-container">
+        <!-- CUADRO ROJO -->
+        <div class="cart-header">
+            <h2>TUS COMPRAS</h2>
+        </div>
+        <!-- CUADRO NEGRO -->
+        <div class="cart-body">
+            <div class="cart-item">
+                <img src="https://i.imgur.com/6cxn60P.png" alt="Artículo 1">
+                <div class="cart-details">
+                    <h4>Producto 1</h4>
+                    <p>Pocillo mágico</p>
+                    <p>Cantidad: 1 Unidad</p>
+                    <p>Diseño: Personalizado Usuario</p>
+                    <p>Precio: $21.000</p>
+                </div>
             </div>
-            <!-- CUADRO NEGRO -->
-            <div class="border p-4 shadow" style="background-color: black; margin-top: 0;">
-                <form class="text-center">
-                    <div class="cart-item">
-                        <img src="imagenes/pocillo.png" alt="Artículo 1">
-                        <div class="text-left">
-                            <h4>Producto 1</h4>
-                            <p>Pocillo mágico</p>
-                            <p>Cantidad: 1 Unidad</p>
-                            <p>Diseño: Personalizado Usuario</p>
-                            <p>Precio: $21.000</p>
-                        </div>
-                    </div>
-                    <div class="cart-item">
-                        <img src="imagenes/camiseta.png" alt="Artículo 2">
-                        <div class="text-left">
-                            <h4>Producto 2</h4>
-                            <p>Camiseta Talla XL Color:Rojo</p>
-                            <p>Cantidad: 1 Unidad</p>
-                            <p>Diseño: NEMORALIA - Nature</p>
-                            <p>Precio: $70.000</p>
-                        </div>
-                    </div>
-                    <div class="mb-3 text-white">
-                        <h4>Total: $91.000</h4>
-                    </div>
-                    <div class="mb-3">
-                        <label for="medioPago" class="form-label text-white">Medio de Pago</label>
-                        <select class="form-control mx-auto" id="medioPago" style="max-width: 300px;">
-                            <option>Tarjeta de Crédito</option>
-                            <option>Transferencia Bancaria</option>
-                            <option>Efectivo</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Pagar</button>
-                </form>
+            <div class="cart-item">
+                <img src="https://i.imgur.com/Ywl4R5W.png" alt="Artículo 2">
+                <div class="cart-details">
+                    <h4>Producto 2</h4>
+                    <p>Camiseta Talla XL Color:Rojo</p>
+                    <p>Cantidad: 1 Unidad</p>
+                    <p>Diseño: NEMORALIA - Nature</p>
+                    <p>Precio: $70.000</p>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="https://i.imgur.com/8tRPfWK.png" alt="Artículo 3">
+                <div class="cart-details">
+                    <h4>Producto 3</h4>
+                    <p>Llavero personalizado</p>
+                    <p>Cantidad: 1 Unidad</p>
+                    <p>Diseño: PERSONALIZADO NEMORALIA</p>
+                    <p>Precio: $10.000</p>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <h4>Total: $101.000</h4>
+                <div class="mb-3">
+                    <label for="medioPago" class="form-label">Medio de Pago</label>
+                    <select class="form-control" id="medioPago" style="max-width: 200px; margin: 0 auto;">
+                        <option>Tarjeta de Crédito</option>
+                        <option>Transferencia Bancaria</option>
+                        <option>Efectivo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-custom">Pagar</button>
             </div>
         </div>
     </div>
