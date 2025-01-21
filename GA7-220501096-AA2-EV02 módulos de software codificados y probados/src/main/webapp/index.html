@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio de sesión - NEMORALIA</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <style>
+            body {
+                text-align: center;
+                margin: 0 auto;
+                max-width: 600px;
+                font-family: 'Roboto', sans-serif;
+            }
+            .logo {
+                width: 200px;
+                margin: 20px auto;
+            }
+
+           
+            .header-container {
+                background-color: red;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                border-radius: 8px;
+                margin: 0px 0;
+            }
+
+            
+            .main-container {
+                background-color: black;
+                color: white;
+                padding: 30px;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            input::placeholder {
+                text-align: center;
+                color : gray;
+                
+                
+            }
+            input {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 15px;
+                border: 1px solid #ccc;
+                background-color: white;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="https://i.imgur.com/F5dBoBn.png" alt="Logo NEMORALIA" class="logo">
+        <div class="header-container">
+            
+            <h1>¡Hola de nuevo!</h1>
+            <p>Inicia sesión para continuar.</p>
+        </div>
+
+        <div class="main-container">
+            <form action="login" method="post">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+                
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa tu contraseña" required>
+                
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
+        </footer>
+    </body>
+</html>
+
